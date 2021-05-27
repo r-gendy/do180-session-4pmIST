@@ -1,0 +1,414 @@
+    1  exit
+    2  ssh root@bastion 
+    3   mysql -uuser1 -pmypa55 --protocol tcp -h localhost
+    4  oc get pods 
+    5  oc exec mysql-openshift-1-kldlh ba
+    6  oc get pods 
+    7  oc rsh mysql-openshift-1-kldlh
+    8  oc describe svc 
+    9   mysql -uuser1 -pmypa55 --protocol tcp -h localhost 
+   10   mysql -uuser1 -pmypa55 --protocol tcp -h localhost -e "show databases"
+   11   mysql -uuser1 -pmypa55 --protocol tcp -h localhost -e "use databases" -e "show tables"
+   12   mysql -uuser1 -pmypa55 --protocol tcp -h localhost -e "databases" -e "show tables"
+   13   mysql -uuser1 -pmypa55 --protocol tcp -h localhost -e "use databases ; show tables"
+   14   mysql -uuser1 -pmypa55 --protocol tcp -h localhost -e "show databases"
+   15   mysql -uuser1 -pmypa55 --protocol tcp -h localhost -e "show table"
+   16  mysql --help |less
+   17   mysql -uuser1 -pmypa55 --protocol tcp -h localhost -e "show table"
+   18   mysql -uuser1 -pmypa55 --protocol tcp -h localhost -e "show databases"
+   19  oc get  pods
+   20  oc delete pod mysql-openshift-1-nkf9k
+   21  oc get  pods
+   22   mysql -uuser1 -pmypa55 --protocol tcp -h localhost -e "show databases"
+   23  source /usr/local/etc/ocp4.defaults 
+   24  lab-configure 
+   25  cat /usr/local/etc/ocp4.config 
+   26  source /usr/local/etc/ocp4.config 
+   27  oc login -u ${RHT_OCP4_DEV_USER=} -p {RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   28  oc login -u ${RHT_OCP4_DEV_USER=} -p p{RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   29  oc login -u ${RHT_OCP4_DEV_USER=} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   30  oc whoami 
+   31   oc new-project ${RHT_OCP4_DEV_USER}-mysql-openshift
+   32  oc status 
+   33  oc new-app --as-deployment-config --docker-image=registry.access.redhat.com/rhscl/mysql-57-rhel7:latest --name=mysql-openshift -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=testdb 
+   34  oc get oids
+   35  oc get po
+   36  oc get  deployment 
+   37  oc get  deploymentconfig 
+   38  oc describe pod mysql-openshift-1-kldlh 
+   39  oc describe pod mysql-openshift-1-kldlh  |less
+   40  oc logs mysql-openshift-1-kldlh 
+   41  oc logs mysql-openshift-1-kldlh |less
+   42  oc get  
+   43  oc logs mysql-openshift-1-deploy |less
+   44  oc logs mysql-openshift-1-deploy 
+   45  oc 
+   46  oc --help |less
+   47  oc new-app --help |less
+   48  history | grep new-app 
+   49  oc get  svc 
+   50  oc get  service 
+   51  oc describe svc mysql-openshift 
+   52  oc get  deployment 
+   53  oc get  deploymentconfig 
+   54  oc describe  deploymentconfig 
+   55  oc describe  deploymentconfig |less
+   56  oc get  deploymentconfig 
+   57  oc new-app --name test01 --docker-image httpd
+   58  oc get  pods
+   59  oc logs test01-5797c85c6f-8msgg
+   60  oc get  svc 
+   61  oc get  dc
+   62  oc get  deployment 
+   63  oc delete deployment test01 
+   64  oc get  pods
+   65  oc delete svc test01 
+   66  oc get  pods
+   67  oc get  svc 
+   68  oc scale --replicas=5 dc/mysql-eopnshift
+   69  oc scale --replicas=5 dc/mysql-openshift
+   70  oc get  pods
+   71  oc delete pod mysql-openshift-1-r5lsc
+   72  oc get  pods
+   73  oc get  dc 
+   74  oc describe dc mysql-openshift 
+   75  oc get  pods 
+   76  oc get  svc 
+   77  oc get deployment 
+   78  oc get deploymentconfig 
+   79  oc get dc
+   80  oc get  route 
+   81  oc expose service mysql-openshift
+   82  oc get  routes 
+   83  oc get route -o yamlk > route.yaml 
+   84  oc get route -o yaml > route.yaml 
+   85  vim route.yaml 
+   86  oc replace -f route.yaml 
+   87  vim route.yaml 
+   88  nslookup chandra.apps.ap45.prod.nextcle.com
+   89  vim route.yaml 
+   90  oc replace -f route.yaml 
+   91  oc get  route 
+   92  oc delete route mysql-openshift
+   93  oc expose service mysql-openshift --hostname chandra.apps.ap45.prod.nextcle.com
+   94  oc get  pods
+   95  oc get  route 
+   96  oc delete route mysql-openshift
+   97  vim route.yaml 
+   98  oc get  route 
+   99  oc create -f route.yaml 
+  100  oc get routes 
+  101  nslookup chandra123.apps.ap45.prod.nextcle.com
+  102  oc get  pods
+  103  oc port-forward mysql-openshift-1-kldlh 3306:3306 
+  104  oc port-forward mysql-openshift-1-nkf9k 3306:3306 
+  105  oc describe svc 
+  106  oc port-forward 172.30.109.42 3306:3306 
+  107  oc get  pods
+  108  oc new-app --name app-01 httpd
+  109  oc get  pods
+  110  oc describe svc 
+  111  oc get  pods
+  112  oc rsh app-01-79dfc6f8df-vpxtr
+  113  oc get  pods
+  114  #oc expose service app-01 
+  115  oc get  route 
+  116  oc expose service app-01 --hostname chandra1234.apps.ap45.prod.nextcle.com
+  117  oc get route 
+  118  oc scale --replicas=5 deployment app-01
+  119  oc get  pods
+  120  oc describe svc app-01
+  121  mkdir data
+  122  cd data/
+  123  pwd
+  124  ll
+  125  vim Dockerfile
+  126  podman build --layers=false -t myimage-01 .
+  127  vim index.html
+  128  podman build --layers=false -t myimage-01 .
+  129  podman images
+  130  podman  tag localhost/myimage-01 quay.io/cprakash2118/myimage-01
+  131  podman  images
+  132  podman  login quay.io 
+  133  podman push quay.io/cprakash2118/myimage-01
+  134  podman  login quay.io 
+  135  podman push quay.io/cprakash2118/myimage-01
+  136  oc get  pods
+  137  oc scale --replicas=2 deployment app-01
+  138  oc get  pods
+  139  oc scale --replicas=2 deploymentconfig mysql-openshift
+  140  oc new-app --name my-server-01 --docker-image quay.io/cprakash2118/myimage-01
+  141  oc get  pods
+  142  oc logs Error
+  143  oc logs my-server-01-d474ccc6-crlm6
+  144  oc get  routes 
+  145  vim /etc/cni/net.d/87-podman-bridge.conflist 
+  146  lab troubleshoot-s2i start
+  147  cd
+  148  git clone https://github.com/cprakash2118/DO180-apps
+  149  cd DO180-apps/
+  150  pwd
+  151  ll
+  152  lab troubleshoot-s2i start
+  153  git checkout master 
+  154  git checkout -b troubleshoot-s2i
+  155  git push -u origin troubleshoot-s2i
+  156  oc whoami 
+  157   oc new-project ${RHT_OCP4_DEV_USER}-nodejs
+  158  oc projects
+  159   oc new-app --as-deployment-config --context-dir=nodejs-helloworld  https://github.com/${RHT_OCP4_GITHUB_USER}/DO180-apps#troubleshoot-s2i  -i nodejs:12 --name nodejs-hello --build-env  npm_config_registry=http://${RHT_OCP4_NEXUS_SERVER}/repository/npm-proxy 
+  160  oc get  posd
+  161  oc get  po
+  162  oc get sv
+  163  oc get svc
+  164  oc get  deployment 
+  165  oc get  deploymentconfig 
+  166  oc get  bc 
+  167  ll
+  168  vim nodejs-helloworld/app.js 
+  169  vim nodejs-helloworld/package.json 
+  170  vim nodejs-helloworld/app.js 
+  171  oc get  pods
+  172  oc logs/bc 
+  173  oc get  bc
+  174  oc logs bc/nodejs-hello
+  175  vim nodejs-helloworld/package.json 
+  176  git status 
+  177  git add nodejs-helloworld/package.json 
+  178  git status 
+  179  git commit -am "Fixed Express release"
+  180  git push 
+  181  oc get pods
+  182  oc get  dc
+  183  oc get bc 
+  184  oc whoami --show-console 
+  185  oc get  bc 
+  186  oc get  pods
+  187   oc start-build bc/nodejs-hello
+  188  oc get  pods
+  189   oc logs -f bc/nodejs-hello
+  190  oc get  pods
+  191  ll
+  192  vim nodejs-helloworld/package.json 
+  193  git commit -am "Added start up script"
+  194  git push 
+  195   oc start-build bc/nodejs-hello
+  196  oc get  pods
+  197  oc expose service nodejs-hello 
+  198  oc get  route 
+  199  oc delete routes nodejs-hello 
+  200  oc expose service nodejs-hello --hostname chandra5.apps.ap45.prod.nextcle.com
+  201  oc get  route 
+  202  pwd
+  203  lab multicontainer-openshift start
+  204  ls -l /usr/local/etc/ocp4.config 
+  205  cat /usr/local/etc/ocp4.config
+  206  lab multicontainer-openshift start
+  207  cd DO180/labs/multicontainer-openshift/
+  208  ll
+  209  podman images
+  210  podman images -qa 
+  211  podman rmi -f `podman images -qa` 
+  212  podman images -qa 
+  213  podman ps
+  214  podman ps -a
+  215  sudo podman ps -a
+  216  sudo podman images
+  217  ll
+  218  vim todo-template.json 
+  219  cd images/
+  220  pwd
+  221  ll
+  222   sudo podman build -t do180-mysql-57-rhel7 .
+  223  cd mysql/
+  224  pwd
+  225  ll
+  226  vim Dockerfile 
+  227  vim root/usr/share/container-scripts/mysql/init/post-init.sh 
+  228  vim Dockerfile 
+  229  vim root/usr/share/container-scripts/mysql/init/post-init.sh 
+  230  vim root/usr/share/container-scripts/mysql/post-init/db.sql 
+  231  vim root/usr/share/container-scripts/mysql/init/post-init.sh 
+  232  ll
+  233  vim test.sh 
+  234  vim Dockerfile 
+  235   sudo podman build -t do180-mysql-57-rhel7 .
+  236  sudo podman images
+  237  sudo podman login quay.io
+  238  sudo podman tag do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+  239  source /usr/local/etc/ocp4.config 
+  240  sudo podman login quay.io
+  241  sudo podman tag do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+  242  sudo podman images
+  243  sudo podman push quay.io/cprakash2118/do180-mysql-57-rhel7
+  244  pwd
+  245  cd ..
+  246  ll
+  247  cd nodejs/
+  248  ll
+  249  vim Dockerfile 
+  250  vim enable-rh-nodejs8.sh 
+  251  vim Dockerfile 
+  252  sudo podman build --layers=false -t do180-nodejs .
+  253  sudo podman images
+  254  pwd
+  255  cd ..
+  256  ll
+  257  cd ..
+  258  ll
+  259  cd deploy/
+  260  pwd
+  261  ll
+  262  cd nodejs/
+  263  pwd
+  264  ll
+  265  vim build.sh 
+  266  vim db.js 
+  267  vim run.sh 
+  268  vim Dockerfile 
+  269  sudo podman images
+  270  do180-nodejs
+  271  ./build.sh 
+  272  sudo podman images
+  273  vim build.sh 
+  274  do180/todonodejs
+  275  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+  276  podman images
+  277  sudo podman images
+  278  -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  279  oc login -u ${RHT_OCP4_DEV_USER} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  280  oc whoami 
+  281   oc new-project ${RHT_OCP4_DEV_USER}-template
+  282  oc status 
+  283  pwd
+  284  ll
+  285  cd ..
+  286  ll
+  287  cd ..
+  288  ll
+  289  vim todo-template.json 
+  290  cat todo-template.json | grep -i quay.io
+  291  #oc process -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}
+  292  podman logs quay.io
+  293  podman login quay.io
+  294  sudo podman images
+  295  sudo podman push quay.io/cprakash2118/do180-todonodejs
+  296  oc process -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER} | oc create -f -
+  297  oc get pods
+  298  oc get svc
+  299  oc get deployment 
+  300  echo redhat |tr 'a-z' 'A-Z'
+  301  echo redhat 
+  302  oc process -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  >> chandra.yaml 
+  303  vim chandra.yaml 
+  304  #oc create -f chandra.yaml 
+  305  mv chandra.yaml chandra.json 
+  306  oc get  pods
+  307  oc get  svc 
+  308  oc get  pvc 
+  309  oc get  dc
+  310  oc get  deployment 
+  311  oc delete pod mysql
+  312  oc delete pod todoapi 
+  313  oc delete svc mysql 
+  314  oc delete svc todoapi 
+  315  oc delete pvc dbclaim 
+  316  oc delete pvc dbinit 
+  317  oc get  pods
+  318  oc get svc 
+  319  oc get pvc 
+  320  oc create -f chandra.json 
+  321  oc get  pods
+  322  oc get svc 
+  323  oc get pvc 
+  324  oc get  pods -o wide 
+  325  oc get  nodes
+  326  oc get  nodes | grep ap45-4pq8c-worker-85xn2
+  327  oc get  nodes | grep ap45-4pq8c-worker-vb4t2
+  328  oc get  nodes -w 
+  329  oc get  pods -w 
+  330  oc get  pods
+  331  oc logs mysql
+  332  oc get  pods
+  333  oc get  svc 
+  334  oc get pvc
+  335  oc get  pods
+  336  ll
+  337  oc get  pods
+  338  oc delete pod mysql 
+  339  oc delete pod todoapi 
+  340  oc delete svc mysql ; oc delete svc todoapi ; oc delete pvc dbclaim
+  341  oc get pvc 
+  342  oc delete pvc dbinit 
+  343  oc get  pod
+  344  oc get svc 
+  345  oc get pvc 
+  346  oc process -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  >> chandra.yaml 
+  347  oc process -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+  348  oc get pods -w 
+  349  oc get pods
+  350  oc logs mysql
+  351  oc get  events
+  352  oc get  events |less
+  353  oc get  pods
+  354  oc expose service todoapi 
+  355  oc get  route 
+  356  oc get  pods
+  357  oc get  events |less
+  358  oc get  pods
+  359  oc new-project demo10
+  360  oc process -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+  361  oc get  pods
+  362  oc get svc 
+  363  oc get pvc 
+  364  oc get route 
+  365  oc projects
+  366  oc get route -n qcs-cprakash-blr-in-template
+  367  oc expose service todoapi --hostname do180.apps.ap45.prod.nextcle.com
+  368  oc get  route 
+  369  oc get  pods
+  370  oc rsh mysql
+  371  oc get  pods
+  372  oc rsh mysql
+  373  oc get  pods
+  374  sudo podman images
+  375  cd
+  376  mkdir ex180
+  377  cd ex180/
+  378  pwd
+  379  l
+  380  ll
+  381  vim Dockerfile
+  382  ll
+  383  cp -rpv /home/student/Downloads/jboss7-eap.zip .
+  384  ll
+  385  vim Dockerfile 
+  386  unzip jboss7-eap.zip 
+  387  ll
+  388  vim Dockerfile 
+  389  rm -rf jboss7-eap 
+  390  ll
+  391  vim Dockerfile 
+  392  podman build --layers=false -t acme-jboss .
+  393  podman images
+  394  touch startScript.sh 
+  395  touch stopScript.sh 
+  396  touch logScript.sh
+  397  chmod 755 *.sh 
+  398  ll
+  399  vim startScript.sh 
+  400  podman  images
+  401  vim startScript.sh 
+  402  vim stopScript.sh 
+  403  ll
+  404  ./startScript.sh 
+  405  podman logs --help |less
+  406  vim logScript.sh 
+  407  ./logScript.sh 
+  408  podman  ps 
+  409  vim Dockerfile 
+  410  history 
+  411  ll
+  412  cd ..
+  413  git clone https://github.com/cprakash2118/do180-session-4pmIST
+  414  history > do180-session-4pmIST/history.txt
